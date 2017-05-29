@@ -74,7 +74,7 @@ function sshag_init {
 # If we are not being sourced, but rather running as a subshell,
 # let people know how to use the output.
 if [[ $0 =~ sshag ]]; then
-    echo 'Output should be assigned to the environment variable $SSH_AUTH_SOCK.' >&2
+    # echo 'Output should be assigned to the environment variable $SSH_AUTH_SOCK.' >&2
     sshag_init
 # Otherwise, make it convenient to invoke the search.
 # When the alias is invoked, it will modify the shell environment.
