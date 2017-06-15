@@ -20,7 +20,7 @@ function sshag_testsocket {
         return 2
     fi
 
-    if [ -S $SSH_AUTH_SOCK ] ; then
+    if [ -S "$SSH_AUTH_SOCK" ] ; then
         ssh-add -l > /dev/null
         if [ $? = 2 ] ; then
             echo "Socket $SSH_AUTH_SOCK is dead!  Deleting!" >&2
@@ -57,7 +57,7 @@ function sshag_init {
     # If at this point we still haven't located an agent, it's time to
     # start a new one
     if [ $AGENTFOUND = 0 ] ; then
-        eval `ssh-agent`
+        eval `ssh-agent` > /dev/null
     fi
 
     # Clean up
